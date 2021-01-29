@@ -5,5 +5,5 @@ app.get('/', (req, resp) => {
 })
 
 app.listen(3000, () => {
-    console.log("rodando");
+    console.log("rodando")
 })

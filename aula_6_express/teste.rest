@@ -1,0 +1,40 @@
+GET http://localhost:3000
+###
+
+GET http://localhost:3000/saudacao?nome=Geraldo&idade=18&cpf=123456789
+
+###
+
+GET http://localhost:3000/alunos
+###
+
+POST http://localhost:3000/alunos
+Content-Type: application/json
+
+[
+    {
+        "nome": "Andre",
+        "idade": 29,
+        "matricula": 123
+    },
+    {
+        "nome": "Ivo",
+        "idade": 20,
+        "matricula": 131
+    }
+]
+
+###
+
+DELETE http://localhost:3000/alunos/123
+
+###
+
+PUT http://localhost:3000/alunos/123
+Content-Type: application/json
+
+{
+        "nome": "Andre",
+        "idade": 30,
+        "matricula": 123
+}

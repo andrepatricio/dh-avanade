@@ -11,18 +11,11 @@ GET http://localhost:3000/alunos
 POST http://localhost:3000/alunos
 Content-Type: application/json
 
-[
-    {
-        "nome": "Andre",
-        "idade": 29,
-        "matricula": 123
-    },
-    {
-        "nome": "Ivo",
-        "idade": 20,
-        "matricula": 131
-    }
-]
+{
+    "nome": "Andre",
+    "matricula": "123edas2",
+    "email": "apatricio@digitalhouse.com"
+}
 
 ###
 
@@ -30,11 +23,23 @@ DELETE http://localhost:3000/alunos/123
 
 ###
 
-PUT http://localhost:3000/alunos/123
+PUT http://localhost:3000/alunos/131
 Content-Type: application/json
 
 {
         "nome": "Andre",
         "idade": 30,
-        "matricula": 123
+        "matricula": 131
+}
+
+###
+GET http://localhost:3000/cursos
+###
+
+POST http://localhost:3000/cursos
+Content-Type: application/json
+
+{
+    "nome": "Android",
+    "codigo": "1234"
 }

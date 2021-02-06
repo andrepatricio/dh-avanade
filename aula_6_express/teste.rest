@@ -12,24 +12,30 @@ POST http://localhost:3000/alunos
 Content-Type: application/json
 
 {
-    "nome": "Andre",
-    "matricula": "123edas2",
-    "email": "apatricio@digitalhouse.com"
+    "nome": "Leonardo",
+    "email": "leonardo@gmail.com",
+    "matricula": "123"
 }
 
 ###
 
-DELETE http://localhost:3000/alunos/123
+DELETE http://localhost:3000/alunos/1
 
 ###
 
-PUT http://localhost:3000/alunos/131
+PUT http://localhost:3000/alunos/123edas2
 Content-Type: application/json
 
 {
-        "nome": "Andre",
-        "idade": 30,
-        "matricula": 131
+        "nome": "Andre"
+}
+
+###
+PATCH  http://localhost:3000/alunos/12/email
+Content-Type: application/json
+
+{
+    "email": "geraldo@digitalhouse.com"
 }
 
 ###
@@ -40,6 +46,17 @@ POST http://localhost:3000/cursos
 Content-Type: application/json
 
 {
-    "nome": "Android",
-    "codigo": "1234"
+    "nome": "Fullstack JAVA",
+    "codigo": "12"
+}
+
+###
+DELETE http://localhost:3000/cursos/12
+
+### 
+PUT http://localhost:3000/cursos/1
+Content-Type: application/json
+
+{
+    "codigo": "0921"
 }

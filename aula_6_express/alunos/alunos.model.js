@@ -14,6 +14,7 @@ const Alunos = db.define('alunos', {
     },
     matricula: {
         type: Sequelize.STRING(100),
+        unique: true
     },
     email: {
         type: Sequelize.STRING(100),

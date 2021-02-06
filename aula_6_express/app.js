@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const alunos = require('./alunos/alunos.routes');
 const cursos = require('./cursos/cursos.routes');
+require('./turmas/turmas.model');
 const Sequelize = require("sequelize");
 const db = require('./db');
 

@@ -12,20 +12,31 @@ router.post('/', async (req, res) => {
     res.status(201).json({ status: "ok"});
 });
 
-router.delete('/:matricula', (req, res) => {
-    alunos = alunos.filter(aluno => aluno.matricula != req.params.matricula)
+router.delete('/:matricula', async (req, res) => {
+    let { matricula } = req.params;
+
+    await Alunos.destroy({ where: {matricula: matricula} });
+
     res.status(200).send();
 });
 
-router.put('/:matricula', (req, res) => {
-    const aluno = req.body;
-    let i = alunos.findIndex(elem => elem.matricula == aluno.matricula)
-    if(i < 0){
-        res.status(400).send();
-        return;
-    }
-    alunos[i] = aluno;
+router.put('/:matricula', async (req, res) => {
+    let { nome, email } = req.body;
+    let { matricula } = req.params;
+    let aluno = await Alunos.findOne({ where: { matricula:  matricula} });
+    aluno.nome = nome || aluno.nome;
+    aluno.email = email || aluno.email;
+
+    aluno.save()
     res.status(200).json(aluno);    
+});
+
+router.patch('/:matricula/email', async (req, res)=> {
+    let { matricula } = req.params;
+    let { email } = req.body;
+    let aluno = await Alunos.update({email: email}, { where: {matricula: matricula}});
+    
+    res.status(200).json(aluno);
 });
 
 module.exports = router

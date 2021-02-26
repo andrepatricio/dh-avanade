@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <script>
+            const name = prompt("Name: ");
+        </script>
+    </head>
+    <body>
+        <h1>
+            Chat
+        </h1>
+        <ul id="messages"></ul>
+        <form action="">
+            <input id="inputMessage"/>
+            <button>send</button>
+        </form>
+        <script src='/socket.io/socket.io.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+        <script>
+            const socket = io.connect('/');
+            socket.on('contador', (data) => {
+                console.log(data.count);
+            })
+
+            socket.on('new msg', (data) => {
+                $('#messages').append($('<li>').text(data));
+            })
+
+            $('form').submit((e) => {
+                e.preventDefault();
+                let msg = name +': ' + $('#inputMessage').val();
+                socket.emit('send msg',  msg);
+                $('#messages').append($('<li>').text(msg));
+                $('#inputMessage').val('');
+            })
+        </script>
+    </body>
+</html>

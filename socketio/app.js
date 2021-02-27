@@ -1,12 +1,7 @@
 const app = require('express')();
 const { Server } = require('http');
 const server = Server(app);
-const io = require('socket.io')(server, {
-    cors: {
-      origin: "*",
-      methods: ["GET", "POST"]
-    }
-  });
+const io = require('socket.io')(server);
 const path = require('path');
 
 app.get('/', (req, res)=>{
@@ -25,12 +20,11 @@ io.on('connection', (socket)=>{
     })
 
     socket.on('send msg', (data) => {
-        console.log(data);
         socket.broadcast.emit('new msg', data)
     })
 });
 
 
-server.listen(3300, ()=> {
-    console.log("Listening on port 3300")
+server.listen(3000, ()=> {
+    console.log("Listening on port 3000")
 })

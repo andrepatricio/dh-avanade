@@ -4,7 +4,7 @@ const server = Server(app);
 const io = require('socket.io')(server, {
     cors: {
       origin: "*",
-      methods: ["GET", "POST"]
+      methods: ["GET", "POST", "PUT"]
     }
   });
 const path = require('path');

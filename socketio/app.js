@@ -25,12 +25,11 @@ io.on('connection', (socket)=>{
     })
 
     socket.on('send msg', (data) => {
-        console.log(data);
         socket.broadcast.emit('new msg', data)
     })
 });
 
 
-server.listen(3300, ()=> {
-    console.log("Listening on port 3300")
+server.listen(3000, ()=> {
+    console.log("Listening on port 3000")
 })
